@@ -1,0 +1,10 @@
+const btn = document.querySelector(".toggler")
+const menu = document.querySelector(".nav-container")
+console.log(btn)
+console.log(menu)
+btn.addEventListener("click", ()=>{
+      menu.classList.toggle("active")  
+      btn.classList.toggle("cross")
+      console.log(menu)
+      console.log(btn)
+})

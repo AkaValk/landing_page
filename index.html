@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Sass</title>
+    <link href="style.css" rel="stylesheet">
+    
+</head>
+<body>
+    <nav>
+        <button class="toggler"><span></span></button>
+    </nav>
+    
+    <div class="nav-container" id="menu">
+        <a href="#header">Accueil</a>
+        <a href="#lorem">A propos</a>
+        <a href="#gallery">Créations</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <header id="header">
+        <h1>Découvrez mes créations</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+    </header>
+    <section id="lorem">
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <div class="card-container">
+                    <div class="img-container">
+                        <img src="/ressources/imgNature.jpg" alt="nature">
+                    </div>
+                    <div class="text-container">
+                        <h3>Lorem ipsum</h3>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam voluptatum nisi dolorem tenetur! Quidem vel molestias quas dolor accusamus blanditiis obcaecati, vero eos nulla maxime non porro earum voluptate minus repellendus voluptates, dolorum officiis facere mollitia natus tempora ipsam pariatur rem laboriosam? Reiciendis illum consequatur nihil sit quos eum nobis.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam voluptatum nisi dolorem tenetur! Quidem vel molestias quas dolor accusamus blanditiis obcaecati, vero eos nulla maxime non porro earum voluptate minus repellendus voluptates, dolorum officiis facere mollitia natus tempora ipsam pariatur rem laboriosam? Reiciendis illum consequatur nihil sit quos eum nobis.</p>
+                    </div>
+            </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <div class="trait"></div>
+        <div class="gallery-container">
+            <img src="/ressources/galerie/imgP1.jpg" alt="">
+            <img src="/ressources/galerie/imgP2.jpg" alt="">
+            <img src="/ressources/galerie/imgP3.jpg" alt="">
+            <img src="/ressources/galerie/imgP4.jpg" alt="">
+            <img src="/ressources/galerie/imgP5.jpg" alt="">
+            <img src="/ressources/galerie/imgP6.jpg" alt="">
+            <img src="/ressources/galerie/imgP7.jpg" alt="">
+            <img src="/ressources/galerie/imgP8.jpg" alt="">
+            <img src="/ressources/galerie/imgP9.jpg" alt="">
+        </div>
+    </section>
+    <div class="parallax">
+        <h2>Nature</h2>
+    </div>
+    <div class="form-container" id="contact">
+        <h3>Rentrons en Contact !</h3>
+        <form>
+               <label for="firstname">Prénom</label>
+               <input type="text" placeholder="Ton prénom..." id="firstname"> 
+
+               <label for="lastname">Nom</label>
+               <input type="text" placeholder="Ton nom..." id="lastname"> 
+
+               <label for="message">Message</label>
+               <textarea id="message" placeholder="Ton message..."></textarea>
+               <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <p>Tous droits réservés</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

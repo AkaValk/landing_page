@@ -1,0 +1,414 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+.form-container h3, .parallax h2, #gallery h2, #lorem h2 {
+  margin: 20px auto;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  width: 10px;
+  height: 10px;
+}
+
+nav {
+  overflow: hidden;
+  width: 100%;
+  height: 7%;
+}
+nav button {
+  position: relative;
+  top: 25%;
+  left: 85%;
+  width: 25px;
+  height: 25px;
+  border: none;
+  background-color: transparent;
+}
+nav button span {
+  transition: background-color 0.5s linear 0.1s;
+  display: block;
+  width: 20px;
+  height: 1px;
+  background-color: #000;
+  position: relative;
+  top: 0%;
+  left: 0%;
+}
+nav button span::before {
+  transition: transform 0.5s linear 0.2s;
+  width: 20px;
+  height: 1px;
+  display: block;
+  position: absolute;
+  background-color: #000;
+  content: "";
+  transform: translateY(-5px);
+}
+nav button span::after {
+  transition: transform 0.5s linear 0.2s;
+  width: 20px;
+  height: 1px;
+  display: block;
+  position: absolute;
+  background-color: #000;
+  content: "";
+  transform: translateY(5px);
+}
+nav button.cross span {
+  background-color: transparent;
+  transition: background-color 0.5s linear 0.2s;
+}
+nav button.cross span::before {
+  transition: transform 0.5s linear 0.2s;
+  transform: rotate(-35deg);
+  opacity: 1;
+}
+nav button.cross span::after {
+  transition: transform 0.5s linear 0.2s;
+  transform: rotate(35deg);
+  opacity: 1;
+}
+
+.nav-container {
+  opacity: 0;
+}
+.nav-container.active {
+  transition: opacity 0.5s ease-in 0.3s;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  width: 100%;
+  height: 40%;
+}
+.nav-container.active a {
+  display: block;
+  line-height: 300%;
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  height: 100%;
+  background: url("/ressources/home.jpg") no-repeat 50% 50%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  color: #f1f1f1;
+}
+header h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+header p {
+  margin: 5px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#lorem {
+  margin: 10px 5px;
+  width: 100%;
+  height: 150%;
+}
+#lorem .card-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  width: 100%;
+  height: 85%;
+}
+#lorem .card-container .img-container {
+  width: 100%;
+  height: 40%;
+}
+#lorem .card-container .img-container img {
+  width: 100%;
+  height: 100%;
+  margin: 5px auto;
+}
+#lorem .card-container .text-container {
+  width: 100%;
+  height: 60%;
+}
+#lorem .card-container .text-container p {
+  margin: 5px;
+  text-align: left;
+  font-size: 0.8rem;
+  width: 100%;
+  height: 45%;
+}
+#lorem .card-container .text-container p:first-of-type {
+  width: 100%;
+  height: 5%;
+}
+
+#gallery {
+  width: 100%;
+  height: 2800px;
+}
+#gallery .trait {
+  margin: 10px auto;
+  background-color: #000;
+  width: 60%;
+  height: 1px;
+}
+#gallery .gallery-container {
+  width: 100%;
+  height: 2700px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+}
+#gallery .gallery-container img {
+  margin: 5px;
+  width: 200px;
+  height: 300px;
+}
+#gallery .gallery-container img:hover {
+  transform: scale(1.2);
+  transition: scale 0.8s ease-in-out 0.2s;
+}
+
+.parallax {
+  width: 100%;
+  height: 25%;
+  background: url("/ressources/para.jpg") no-repeat fixed 50% 50%;
+  background-size: cover;
+}
+.parallax h2 {
+  color: #f1f1f1;
+  text-align: center;
+  line-height: 500%;
+}
+
+.form-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+}
+.form-container form {
+  width: 90%;
+  height: 100%;
+  margin: 0px 10px;
+}
+.form-container form input[type=text] {
+  display: block;
+  width: 80%;
+  height: 30px;
+  border: 1px solid #CCC;
+  background-color: transparent;
+}
+.form-container form textarea {
+  width: 80%;
+  height: 100px;
+  display: block;
+}
+.form-container form button {
+  margin: 10px auto;
+  width: 40%;
+  height: 30px;
+}
+
+footer {
+  border-top: 1px dashed #000;
+  background-color: transparent;
+  margin: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 600px) {
+  #lorem .card-container .img-container {
+    width: 60%;
+    height: 30%;
+  }
+  #lorem .card-container .img-container img {
+    width: 60%;
+    height: 100%;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #lorem .card-container .text-container {
+    width: 80%;
+    height: 60%;
+  }
+  #lorem .card-container .text-container h3 {
+    text-align: center;
+    line-height: default;
+  }
+  #lorem .card-container .text-container p {
+    margin: 5px;
+    text-align: left;
+    font-size: 1rem;
+  }
+  #gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+    width: 100%;
+    height: 1800px;
+  }
+  #gallery .gallery-container {
+    width: 60%;
+    height: 1800px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .form-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+    width: 60%;
+    height: 100%;
+  }
+  .form-container form label {
+    margin: 5px;
+    text-align: left;
+    font-size: 14px;
+    display: block;
+  }
+  .form-container form input[type=text] {
+    width: 80%;
+    height: 40px;
+  }
+}
+@media screen and (min-width: 800px) {
+  nav {
+    display: none;
+  }
+  nav button {
+    display: none;
+  }
+  .nav-container {
+    opacity: 1;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 8%;
+  }
+  .nav-container a {
+    padding: 0px 10px;
+  }
+  #lorem .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    width: 90%;
+    height: 100%;
+  }
+  #lorem .card-container .img-container {
+    width: 49%;
+    height: 80%;
+  }
+  #lorem .card-container .img-container img {
+    width: 100%;
+    height: 80%;
+  }
+  #lorem .card-container .text-container {
+    width: 49%;
+    height: 80%;
+  }
+  #lorem .card-container .text-container p {
+    margin: 5px;
+    text-align: left;
+    font-size: 0.9rem;
+    width: 100%;
+    height: 30%;
+  }
+  #gallery {
+    width: 100%;
+    height: 1200px;
+  }
+  #gallery .gallery-container {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #lorem {
+    width: 100%;
+    height: 100%;
+  }
+  #lorem .card-container .text-container p {
+    margin: 5px;
+    text-align: left;
+    font-size: 1rem;
+  }
+  #gallery {
+    width: 100%;
+    height: 1300px;
+  }
+  #gallery .gallery-container {
+    width: 100%;
+    height: 1300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  #gallery .gallery-container img {
+    width: 25%;
+    height: 25%;
+  }
+  .parallax {
+    width: 100%;
+    height: 20%;
+  }
+  .form-container {
+    width: 100%;
+    height: 70%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

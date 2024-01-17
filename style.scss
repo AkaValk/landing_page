@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+$font1 : "Poppins", sans-serif;
+$font_title : "Abril Fatface", cursive;
+$black : #000;
+$white : #f1f1f1;
+$bg_card : #F0FFFF;
+$margin-container :10px; 
+@mixin center($justify:center, $align:center, $direction: column, $wrap : no-wrap){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    flex-wrap: $wrap; //Condition vu que no wrap veut pas fonctionner
+}
+@mixin btn($bg:transparent, $name,$border, $radius : 0){
+    #{$name} : $border;
+    background-color: $bg;
+}
+%title{
+    margin: 20px auto;
+    font-size: 1.2rem;
+    text-align: center;
+}
+@mixin p($align: center, $fs:14px){
+    margin: 5px;
+    text-align: $align;
+    font-size:  $fs;
+    
+}
+@mixin text-center($lh){
+    text-align: center;
+    line-height: $lh;
+}
+@mixin hamburger($y){
+    display: block;
+    position: absolute;
+    background-color: $black;
+    content:""; 
+    transform: translateY($y); }
+@mixin size($width, $height :$width){
+        width: $width;
+        height: $height; }
+
+@mixin position($position, $top, $left ){
+    position: $position;
+    top: $top;
+    left: $left;
+}
+@mixin center2{
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+// Margin responsive
+// BG ? 
+// Placeholder container ? 
+*,::before, ::after{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+body{
+        height: 100vh;
+        font-family: $font1;
+        overflow-x: hidden;
+        }        
+
+img{
+    @include size(10px, 10px)
+}        
+nav{
+    overflow: hidden;
+    @include size(100%, 7% );
+    button{
+        @include position(relative, 25% , 85% );
+        @include size(25px, 25px);
+        @include btn($bg :transparent, $name :border ,$border :none);
+        span{
+            transition: background-color 0.5s linear 0.1s;
+            display:block;
+            @include size(20px, 1px);
+            background-color: $black;
+            @include position(relative, 0%, 0%);
+            &::before{
+                transition: transform 0.5s linear 0.2s;
+                @include size(20px, 1px);
+                @include hamburger(-5px)
+            }
+            &::after{
+                transition: transform 0.5s linear 0.2s;
+                @include size(20px, 1px);
+                @include hamburger(5px)
+            }
+        }
+        &.cross{
+            span{
+                background-color: transparent;
+                transition: background-color 0.5s linear 0.2s;
+                &::before{
+                    transition: transform 0.5s linear 0.2s;
+                    transform: rotate(-35deg);
+                    opacity: 1;
+                }
+                &::after{
+                    transition: transform 0.5s linear 0.2s;
+                    transform: rotate(35deg);
+                    opacity: 1;
+                }
+            }
+            
+        }
+    }
+}   
+.nav-container{
+    opacity: 0;
+    &.active{
+        transition: opacity 0.5s ease-in 0.3s;
+        opacity: 1;
+        @include center() ;
+        @include size(100%, 40%);
+        a{  display: block;
+            line-height: 300%;
+            text-decoration: none;
+        }
+    }
+   
+}     
+header{
+    @include size(100%, 100%);
+    background: url("/ressources/home.jpg") no-repeat 50% 50% ;
+    background-size: cover;
+    @include center($justify:center, $align:center, $direction: column, $wrap :no-wrap);
+    color: $white;
+    h1{
+        font-size: 2rem;
+        text-align: center;
+    }
+    p{
+        @include p($fs:1rem)
+    }
+}
+#lorem{
+    margin: 10px 5px;  
+    @include size(100%, 150%);
+    h2{
+        @extend %title;
+    };
+    .card-container{
+        @include center($justify:start);
+        @include size(100%, 85% );
+        .img-container{
+            @include size(100%, 40%);
+            img{
+                @include size(100%, 100%);
+                margin: 5px auto;  
+            }
+        }
+        .text-container{
+            @include size(100%, 60%); 
+            p
+            {  
+                @include p($align : left, $fs :0.8rem);
+                @include size(100%, 45% );
+                &:first-of-type{
+                    @include size(100%, 5%)
+                }
+            }
+        }
+    }
+    
+}
+#gallery{ 
+    @include size(100%, 2800px);
+    h2{ @extend %title}
+    .trait{
+        margin: 10px auto;
+        background-color: $black;
+        @include size(60%, 1px)
+    }
+    .gallery-container{
+        @include size(100%, 2700px); 
+        @include center($justify:start );
+        img{
+            margin :5px ;
+            @include size(200px, 300px);
+            &:hover{
+                transform: scale(1.2);
+                transition: scale 0.8s ease-in-out 0.2s;          
+            }
+        }
+    }
+}
+.parallax {
+    @include size(100%, 25% );
+    background: url("/ressources/para.jpg") no-repeat fixed 50% 50%;
+    background-size: cover;
+    h2{
+        color :$white;
+        @extend %title;
+        @include text-center($lh:500%)
+    }
+}
+.form-container{
+    @include size(100%,80% );
+    @include center( );
+    h3{
+        @extend %title
+    }
+    form{
+        @include size(90%, 100% );
+            margin: 0px 10px;
+        input[type=text]{
+            display: block;
+            @include size($width: 80% ,$height: 30px );
+            @include btn($bg :transparent, $name:border, $border : 1px solid #CCC, $radius:3px)
+        }
+        textarea{
+            @include size($width: 80%, $height: 100px);
+            display: block;
+        }
+        button{
+            margin: 10px auto;
+            @include size(40%, 30px )
+        }
+    }
+    
+}
+footer{
+    @include btn ($name:border-top, $border : 1px dashed $black) ;
+    @include p()
+}
+@media screen and (min-width:600px) {
+#lorem{
+        .card-container{
+            .img-container{
+                @include size(60%, 30%);
+                img{
+                    @include size(60%, 100% );
+                    @include center2();
+                }
+            }
+            .text-container{
+                @include size(80%, 60% );
+                h3{
+                    @include text-center($lh: default, );
+                }
+                p{
+                    @include p($fs:1rem ,$align:left)
+                }
+            }
+        }
+    }
+#gallery{
+        @include center();
+        @include size(100%, 1800px);
+        .gallery-container{
+            @include size(60%, 1800px);
+            @include center($wrap : wrap, $justify:start, $align: center);
+        }
+    }   
+    .form-container{
+        
+        form{
+            @include center($align:center);
+            @include size(60%,100% );
+            label{
+                @include p($align :left);
+                display: block;
+              
+            }
+            input[type=text]{
+               @include size(80%, 40px)
+            }
+        }
+    }
+}
+
+@media screen and (min-width:800px) {
+    nav{
+        display: none;
+        button{
+            display: none
+        }
+    }
+    .nav-container{
+        opacity: 1;
+        z-index: 3;
+        position: fixed;
+        top : 0;
+        @include center($direction :row );
+        background-color: $white;
+        @include size(100%,8% );
+        a{
+            padding : 0px 10px;
+        }
+    }
+    #lorem{
+        .card-container{
+            @include center($direction: row );
+            @include size(90%, 100% );
+            .img-container{
+                @include size(49%, 80%);
+                img{
+                    @include size(100%, 80% )
+                }
+            }
+            .text-container{
+                @include size(49%, 80% );
+                p{
+                    @include p($align : left, $fs:0.9rem);
+                    @include size(100%, 30%)
+                }   
+            }
+        }
+    }
+    #gallery{
+        @include size(100%,1200px );
+        .gallery-container{
+            @include size(100%, 1000px);
+            @include center($wrap : wrap, $justify:start, $align: center);
+        }
+    }
+}
+
+@media screen and (min-width : 1000px) {
+    #lorem{
+        @include size(100%, 100%);
+        .card-container{
+            .text-container{
+                p{
+                    @include p($fs :1rem, $align:left);
+                }
+            }
+        }
+    }
+    #gallery{
+        @include size(100%,1300px );
+        .gallery-container{
+            @include size(100%, 1300px);
+            @include center($wrap : wrap, $justify:space-evenly, $align: center);
+            img{
+                @include size(25%, 25%)
+            }
+        }
+    }
+    .parallax{
+        @include size(100%, 20% )
+    }
+    .form-container{
+        @include size(100%, 70%);
+       
+    }
+}
